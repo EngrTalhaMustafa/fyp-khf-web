@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb, Col, Drawer } from 'antd';
+import { Modal,Alert,Button, Popover, Layout, Menu, Breadcrumb, Col, Drawer } from 'antd';
 import './navbar.css'
 import logo from '../../index.jpg'
 import { Switch, Route, Link, BrowserRouter as Router } from 'react-router-dom'
@@ -9,6 +9,7 @@ import users from "../../users";
 import App from "../../App";
 import { withRouter } from 'react-router-dom'
 import { tsImportEqualsDeclaration } from "@babel/types";
+import Moment from 'moment';
 const { Header, Content, Footer } = Layout;
 
 class navbar extends React.Component {
@@ -18,18 +19,21 @@ class navbar extends React.Component {
 
 
 
-    state = {order : {
-        day: '',
-        time: '',
-        dishes: []
-    },visibleDrawer: false, visibleFirstChildDrawer: false, visibleSecondChildDrawer: false };
+    state = {
+         order: {
+            day: '',
+            time: '',
+            dishes: []
+        }, visibleDrawer: false, visibleFirstChildDrawer: false, visibleSecondChildDrawer: false
+    };
 
     showDrawer = () => {
-        if (!localStorage.getItem('order')) {
+        if (!localStorage.getItem(Moment().format("MMM Do YY"))) {
             let order = {
                 day: '',
                 time: '',
-                dishes: []
+                dishes: [],
+                // date:Moment().format("MMM Do YY"), 
             }
             this.setState({
                 visibleDrawer: true,
@@ -40,6 +44,19 @@ class navbar extends React.Component {
             visibleDrawer: true,
         });
     };
+
+
+    addToCard = (dish) => {
+        let orderForLater = this.state.order.day != Moment().format('dddd').toUpperCase() && this.getCurrentShift != this.state.order.time
+        if (orderForLater) {
+            this.showSignupAlert()
+        }
+        else {
+            console.log('order for now')
+
+        }
+    }
+
 
     showFirstChildDrawer = (day) => {
         console.log(day);
@@ -66,66 +83,67 @@ class navbar extends React.Component {
 
     menu = {
         SATURDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
         },
         SUNDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         },
         MONDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         },
         TUESDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         },
         WEDNESDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         },
         THURSDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         },
         FRIDAY: {
-            Breakfast: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
-            Lunch: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
-            Dinner: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
+            BREAKFAST: [{ name: 'PARATHA', price: 20 }, { name: 'KABAB', price: 30 }, { name: 'KABAB ROLL', price: 50 }],
+            LUNCH: [{ name: 'DAL', price: 60 }, { name: 'CHAWAL', price: 60 }, { name: 'MANCHORIAN RICE', price: 200 }],
+            DINNER: [{ name: '', price: '' }, { name: '', price: '' }, { name: '', price: '' }],
 
         }
     }
 
     getDishes = () => {
-        if(this.state.order.day && this.state.order.time){
+        if (this.state.order.day && this.state.order.time) {
 
-       let day = this.state.order.day;
-        let time= this.state.order.time;
-        console.log(day,time)
-        if(this.menu[day][time]){
-            // alert(this.menu[day][time])
-            console.log('retruening',this.menu[day][time])
-            return this.menu[day][time];
-            // return []
-    }}
-    else {
-        // console.log(this.menu.day.time)
-        // alert(1)
-        return []
+            let day = this.state.order.day;
+            let time = this.state.order.time;
+            console.log(day, time)
+            if (this.menu[day][time]) {
+                // alert(this.menu[day][time])
+                console.log('retruening', this.menu[day][time])
+                return this.menu[day][time];
+                // return []
+            }
+        }
+        else {
+            // console.log(this.menu.day.time)
+            // alert(1)
+            return []
+        }
     }
-}
 
     onClose = () => {
         this.setState({
@@ -140,6 +158,36 @@ class navbar extends React.Component {
             visibleFirstChildDrawer: false,
             visibleDrawer: true,
         })
+    }
+
+
+
+ showSignupAlert = () => {
+    Modal.info({
+      title: 'Do You Want To Order For Later? Signup Now!',
+      content: '',
+      okText : 'Signup Now!',
+      onOk() {     console.log('going to signup page')
+    },
+    });
+  }
+
+  
+
+    getCurrentShift = () => {
+        let currentTime = parseInt(Moment().startOf('day').fromNow().slice(0, 2));
+        if (currentTime <= 10) {
+            return 'BREAKFAST';
+        }
+        else if (currentTime > 10 && currentTime <= 15) {
+            return 'LUNCH';
+        }
+        else if (currentTime >= 18 && currentTime <= 21) {
+            return 'DINNER';
+        }
+        else {
+            return '';
+        }
     }
 
     backToFirstChildDrawer = () => {
@@ -191,7 +239,7 @@ class navbar extends React.Component {
                     >
                         {
                             this.days.map(e => {
-                                return <p key={e} onClick={this.showFirstChildDrawer.bind(this, e)}   >{e}</p>
+                                return <p style={{ color: e == Moment().format('dddd').toUpperCase() ? 'blue' : '' }} key={e} onClick={this.showFirstChildDrawer.bind(this, e)}   >{e}</p>
                             })
                         }
                         <Drawer
@@ -202,9 +250,10 @@ class navbar extends React.Component {
                             onClose={this.onClose}
                             visible={this.state.visibleFirstChildDrawer}
                         >
-                            <p key={'breakfast'} onClick={this.showSecondChildDrawer.bind(this, 'Breakfast')}>Breakfast</p>
-                            <p key={'lunch'} onClick={this.showSecondChildDrawer.bind(this, 'Lunch')}>Lunch</p>
-                            <p key={'dinner'} onClick={this.showSecondChildDrawer.bind(this, 'Dinner')}>Dinner</p>
+                            {console.log(Moment().startOf('day').fromNow())}
+                            <p style={{ color: parseInt(Moment().startOf('day').fromNow().slice(0, 2)) < 10  && this.state.order.day == Moment().format('dddd').toUpperCase() ? 'blue' : '' }} key={'breakfast'} onClick={this.showSecondChildDrawer.bind(this, 'BREAKFAST')}>Breakfast</p>
+                            <p style={{ color: parseInt(Moment().startOf('day').fromNow().slice(0, 2)) > 10 && parseInt(Moment().startOf('day').fromNow().slice(0, 2)) <= 15 && this.state.order.day == Moment().format('dddd').toUpperCase() ? 'Blue' : ''}}  key={'LUNCH'} onClick={this.showSecondChildDrawer.bind(this, 'LUNCH')}>Lunch</p>
+                            <p style={{ color: parseInt(Moment().startOf('day').fromNow().slice(0, 2)) >= 18 && parseInt(Moment().startOf('day').fromNow().slice(0, 2)) <= 21 && this.state.order.day == Moment().format('dddd').toUpperCase() ? 'Blue' : '' }}  key={'DINNER'} onClick={this.showSecondChildDrawer.bind(this, 'DINNER')}>Dinner</p>
 
                             <Drawer
                                 id="secondChildDrawer"
@@ -214,16 +263,25 @@ class navbar extends React.Component {
                                 onClose={this.onClose}
                                 visible={this.state.visibleSecondChildDrawer}
                             >
+
+
                                 {
 
                                     this.getDishes().map(dish => {
-                                       console.log(dish);
+                                        console.log(dish);
                                         return (
-                                            <div key={this.state.order.day.concat(dish.name)}>
-                                            
-                                            <p>{dish.name}</p>
-                                            <p>{dish.price}</p>
-                                            <p><button>+</button></p>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }} key={this.state.order.day.concat(dish.name)}>
+
+                                                <p style={{ width: '100px' }}>{dish.name}</p>
+                                                <p>{dish.price}</p>
+                                                <p><button
+                                                    // disabled={this.state.order.day != Moment().format('dddd').toUpperCase() && this.getCurrentShift != this.state.order.time}
+                                                    onClick={
+                                                        this.addToCard.bind(this, dish)
+                                                    }
+
+                                                >+
+                                                </button></p>
                                             </div>)
                                     })
 
@@ -243,6 +301,6 @@ class navbar extends React.Component {
 
 export default (navbar)
 
-                  
+
 
 
