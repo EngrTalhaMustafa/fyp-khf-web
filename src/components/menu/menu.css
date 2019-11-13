@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+#mainRow{
+    display: flex;
+flex-flow: row;
+justify-content: space-around;
+align-content: center;
+align-items: center;
+padding: 50px 30px;
+padding-top: 0px;
+width: 100% !important;
+border: 1px solid
+red;
+justify-content: space-around;
+}
+
+#root{
+    
+    /* background-image: url('./menu.png'); */
+}
+
+#mainRow>div{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+@media (max-width:576px){
+    #mainRow{
+        flex-flow: column !important;
+        /* background-color: red; */
+        justify-items: center;
+        padding: 0px;
+    }
+    .ant-card:nth-child(1){
+        margin-top: 50px;
+        
+    }
+
+    .ant-card{
+        max-width: 300px;
+
+    }
+}
+@media (min-width:576px){
+    #mainRow{
+        flex-flow: row !important;
+        /* background-color: green; */
+    }
+    .ant-card:nth-child(1){
+        /* margin-top: 50px; */
+    }
+}
+
+.ant-card{
+color:white;
+text-align: left;
+background: none !important;
+width: 100% !important;
+}
+
+
+
+#heading{
+    margin-bottom: 0px;
+padding: 25px 0px;
+font-family: 'Dancing Script', cursive;
+font-size: 38px;
+color:rgb(215,15,100)
+}

@@ -1,0 +1,45 @@
+.menu{
+    background-color: #D70F64 !important;
+    line-height: 62px;
+    color: white;
+}
+
+.logo {
+    margin-right: 20px;
+    width: 88px;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 0.2); */
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ant-menu-item-selected{
+    color:white !important;
+    border-bottom: 2px solid white !important;
+  }
+
+  .ant-menu-item:hover{
+    color:lightcoral !important;
+    border-bottom: 2px solid lightcoral !important;
+  }
+
+  .ant-menu-horizontal{
+    border-bottom: 0px !important;
+  }
+
+  .ant-menu-horizontal > .ant-menu-item > a{
+    color: white !important;
+  }
+
+.ant-drawer-body{
+  /* border: 10px solid transparent;
+  padding: 15px;
+  -webkit-border-image: url(menuBorder.png); */
+  /* background-image: url(menuBorder.png); */
+}
+
+  Header{
+    position: fixed; z-index: 1; width: 100%;
+  }

@@ -1,0 +1,15 @@
+#row{
+    padding: 15px 30px !important;
+    /* background-color: orange; */
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-content: center;
+}
+
+#row div{
+width: 33% !important;
+/* background-color: red; */
+text-align: center;
+/* font-size: 3em; */
+}
