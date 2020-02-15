@@ -1,0 +1,9 @@
+{
+    "env":"local",
+    "host":{
+        "local":"http://localhost:3000",
+        "staging":"",
+        "production":""
+    }
+
+}

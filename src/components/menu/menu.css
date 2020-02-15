@@ -52,11 +52,19 @@ justify-content: space-around;
     }
 }
 
+.ant-card-cover img{
+    height: 100px;
+    width: 100%;
+}
+
 .ant-card{
 color:white;
 text-align: left;
 background: none !important;
-width: 100% !important;
+width: 65%;
+max-width: 500px;
+min-width: 350px;
+/* width: 100% !important; */
 }
 
 
@@ -67,4 +75,11 @@ padding: 25px 0px;
 font-family: 'Dancing Script', cursive;
 font-size: 38px;
 color:rgb(215,15,100)
+}
+
+
+
+.ant-tabs .ant-tabs-top-content > .ant-tabs-tabpane{
+    display: flex;
+    justify-content: center !important;
 }

@@ -1,0 +1,1 @@
+module.exports.ADD_TO_CHIEF_REQUEST = "ADD_TO_CHIEF_REQUEST";
