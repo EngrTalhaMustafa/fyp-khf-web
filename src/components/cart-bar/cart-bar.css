@@ -1,0 +1,13 @@
+.cartBar{
+    width: 100vw;
+    height: 10vh;
+    background-color: palevioletred;
+    overflow: hidden;
+    z-index: 1000000;
+        position: fixed;
+        bottom: 0;
+        height: 10vh;
+background-color:white;
+border-top: 2px solid crimson;
+  
+}

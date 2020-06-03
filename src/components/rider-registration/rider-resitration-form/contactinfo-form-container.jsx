@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formLayout } from './formLayout';
 import TextInput from '../../form-components/text-input';
-import { Form, FormInput, Button } from 'antd';
+import { Icon, Form, FormInput, Button } from 'antd';
 import RadioField from '../../form-components/radio-field';
 import NumberInput from '../../form-components/number-input';
 import { connect } from 'react-redux';
@@ -100,17 +100,19 @@ class CheifRegistrationContactInfoFormContainer extends Component {
                         onChange={this.changeHandler}
                     />
                 </Form.Item>
+                <br /><br />
+                <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "center" }}>
 
-                <Form.Item>
-
-                    <Button onClick={this.backHandler}>
-                        Previouss
+                    <Button size={"large"} shape={"round"} style={{ width: "25%" }} onClick={this.backHandler} type="primary">
+                        <Icon type="left" />
+                        Previous
                     </Button>
-                    <Button onClick={this.submitHandler}>
+                    <Button size={"large"} shape={"round"} style={{ width: "25%", background: "#28a745", borderColor: "#28a745" }} onClick={this.submitHandler} type="primary">
                         Submit
+                    <Icon type="right" />
                     </Button>
-                </Form.Item>
 
+                </div>
             </Form>
         );
     }

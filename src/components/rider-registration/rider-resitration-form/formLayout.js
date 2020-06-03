@@ -1,13 +1,13 @@
 module.exports.formLayout = {
     labelCol: {
         xl: {
-            span: 8,
+            span: 6,
             offset: 0,
         }, lg: {
-            span: 8,
+            span: 6,
             offset: 0,
         }, md: {
-            span: 8,
+            span: 7,
             offset: 0,
         }, sm: {
             span: 12,
@@ -19,13 +19,13 @@ module.exports.formLayout = {
     },
     wrapperCol: {
         xl: {
-            span: 8,
+            span: 6,
             offset: 0,
         }, lg: {
-            span: 8,
+            span: 6,
             offset: 0,
         }, md: {
-            span: 8,
+            span: 7,
             offset: 0,
         }, sm: {
             span: 12,

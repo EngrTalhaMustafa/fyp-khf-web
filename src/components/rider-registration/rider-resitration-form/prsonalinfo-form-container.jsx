@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formLayout } from './formLayout';
 import TextInput from '../../form-components/text-input';
-import { Form, FormInput, Button } from 'antd';
+import { Form, Icon, FormInput, Button } from 'antd';
 import RadioField from '../../form-components/radio-field';
 import NumberInput from '../../form-components/number-input';
 import { connect } from 'react-redux';
@@ -38,7 +38,7 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
 
 
   submitHandler = event => {
-    const {formControls} = this.state;
+    const { formControls } = this.state;
     let newObject = {
       fullName: formControls.fullName.value,
       fatherHusbandName: formControls.fatherHusbandName.value,
@@ -97,7 +97,7 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
           />
         </Form.Item>
         <Form.Item label="Age">
-          <NumberInput
+          <TextInput
             name="age"
             type="number"
             value={this.state.formControls.age.value}
@@ -105,12 +105,11 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
             onChange={this.changeHandler} />
         </Form.Item>
 
-        <Form.Item>
-          <Button onClick={this.submitHandler}>
+        <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "center" }}>
+          <Button size={"large"} shape={"round"} style={{ width: "50%" }} onClick={this.submitHandler} type="primary">
             Next
-          </Button>
-        </Form.Item>
-
+            <Icon type="right" />
+          </Button>        </div>
       </Form>
     );
   }

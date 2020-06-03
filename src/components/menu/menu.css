@@ -67,6 +67,9 @@ min-width: 350px;
 /* width: 100% !important; */
 }
 
+.ant-notification-bottomLeft{
+    margin-left: 0px !important;
+}
 
 
 #heading{

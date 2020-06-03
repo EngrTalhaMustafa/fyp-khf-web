@@ -1,6 +1,17 @@
 @import '~antd/dist/antd.css';
 
 .slick-slide{
-
     height: 60vh !important;
+}
+
+
+.checkout-button{
+    width: 80%;
+    margin-left: 10%
+}
+
+@media (max-width: 640px) {
+    .checkout-button{
+        width: 100%
+    }
 }

@@ -99,7 +99,7 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
           />
         </Form.Item>
         <Form.Item label="Age">
-          <NumberInput
+          <TextInput
             name="age"
             type="number"
             value={this.state.formControls.age.value}
@@ -107,12 +107,12 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
             onChange={this.changeHandler} />
         </Form.Item>
 
-        <Form.Item>
-          <Button onClick={this.submitHandler} type="primary">
+        <div style={{width:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
+          <Button size={"large"} shape={"round"} style={{width:"50%"}} onClick={this.submitHandler} type="primary">
             Next
             <Icon type="right" />
           </Button>
-        </Form.Item>
+          </div>
 
       </Form>
     );

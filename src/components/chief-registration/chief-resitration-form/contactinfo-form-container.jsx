@@ -12,10 +12,10 @@ class CheifRegistrationContactInfoFormContainer extends Component {
     constructor() {
         super();
         this.state = {
-            result:{
-            showResult: false,
-            success: false,
-            error: false
+            result: {
+                showResult: false,
+                success: false,
+                error: false
             },
             showLoading: false,
             formControls: {
@@ -70,15 +70,13 @@ class CheifRegistrationContactInfoFormContainer extends Component {
             ...this.props.cheifRequest
         };
         this.props.addToChiefRequest(newObject);
-        // this.props.submit();
-        console.log("submitiinggggggg", newObject)
-        axios.post('http://localhost:3000/chef/send/request', newObject)
+        axios.post('http://localhost:3000/website/chef/send/request', newObject)
             .then(result => {
                 this.setState({
                     data: result.data,
                     showLoading: false,
-                    result: {showResult:true,success:true,error:false},
-                    
+                    result: { showResult: true, success: true, error: false },
+
                 }, () => {
                     console.log("data submited", result.data);
                 })
@@ -88,7 +86,7 @@ class CheifRegistrationContactInfoFormContainer extends Component {
                 this.setState({
                     ...this.state,
                     showLoading: false,
-                    result: {showResult:true,success:false,error:true},
+                    result: { showResult: true, success: false, error: true },
                 })
             });
 
@@ -113,103 +111,98 @@ class CheifRegistrationContactInfoFormContainer extends Component {
                 },
             }
         })
-
-        // console.log(this.state.formControls.fullAddress.value)
-
     }
 
     render() {
         return (
             <div>
                 {
-                this.state.result.showResult ==false ?
-                <Spin spinning={this.state.showLoading} tip="Submiting The Request...." delay={500}>
-                    <Form {...formLayout} layout="vertical" onSubmit={this.submitHandler}>
-                        <Form.Item label="Full Address">
-                            <TextInput name="fullAddress" placeholder={this.state.formControls.fullAddress.placeholder}
-                                value={this.state.formControls.fullAddress.value}
-                                onChange={this.changeHandler}
-                            />
-                        </Form.Item>
-                        <Form.Item label="City">
-                            <SelectField name="city"
-                                placeholder={this.state.formControls.city.placeholder}
-                                value={this.state.formControls.city.value}
-                                onChange={this.changeHandler}
-                                options={[{ name: "Karachi", value: 1 }]}
-                                defaultValue="1"
-                            />
-                        </Form.Item>
+                    this.state.result.showResult == false ?
+                        <Spin spinning={this.state.showLoading} tip="Submiting The Request...." delay={500}>
+                            <Form {...formLayout} layout="vertical" onSubmit={this.submitHandler}>
+                                <Form.Item label="Full Address">
+                                    <TextInput name="fullAddress" placeholder={this.state.formControls.fullAddress.placeholder}
+                                        value={this.state.formControls.fullAddress.value}
+                                        onChange={this.changeHandler}
+                                    />
+                                </Form.Item>
+                                <Form.Item label="City">
+                                    <SelectField name="city"
+                                        placeholder={this.state.formControls.city.placeholder}
+                                        value={this.state.formControls.city.value}
+                                        onChange={this.changeHandler}
+                                        options={[{ name: "Karachi", value: 1 }, { name: "Lahore", value: 2 }]}
+                                        defaultValue="1"
+                                    />
+                                </Form.Item>
 
-                        <Form.Item label="Postal Code">
-                            <TextInput name="postalCode" placeholder={this.state.formControls.postalCode.placeholder}
-                                value={this.state.formControls.postalCode.value}
-                                onChange={this.changeHandler}
-                            />
-                        </Form.Item>
-                        <Form.Item label="Email">
-                            <TextInput name="email" placeholder={this.state.formControls.email.placeholder}
-                                value={this.state.formControls.email.value}
-                                onChange={this.changeHandler}
-                            />
-                        </Form.Item>
-                        <Form.Item label="Mobile Number">
-                            <TextInput name="mobilePhoneNumber" placeholder={this.state.formControls.mobilePhoneNumber.placeholder}
-                                value={this.state.formControls.mobilePhoneNumber.value}
-                                onChange={this.changeHandler}
-                            />
-                        </Form.Item>
+                                <Form.Item label="Postal Code">
+                                    <TextInput name="postalCode" placeholder={this.state.formControls.postalCode.placeholder}
+                                        value={this.state.formControls.postalCode.value}
+                                        onChange={this.changeHandler}
+                                    />
+                                </Form.Item>
+                                <Form.Item label="Email">
+                                    <TextInput name="email" placeholder={this.state.formControls.email.placeholder}
+                                        value={this.state.formControls.email.value}
+                                        onChange={this.changeHandler}
+                                    />
+                                </Form.Item>
+                                <Form.Item label="Mobile Number">
+                                    <TextInput name="mobilePhoneNumber" placeholder={this.state.formControls.mobilePhoneNumber.placeholder}
+                                        value={this.state.formControls.mobilePhoneNumber.value}
+                                        onChange={this.changeHandler}
+                                    />
+                                </Form.Item>
 
-                        <Form.Item label="Whatapp Number">
-                            <TextInput name="whatsAppNumber" placeholder={this.state.formControls.whatsAppNumber.placeholder}
-                                value={this.state.formControls.whatsAppNumber.value}
-                                onChange={this.changeHandler}
-                            />
-                        </Form.Item>
+                                <Form.Item label="Whatapp Number">
+                                    <TextInput name="whatsAppNumber" placeholder={this.state.formControls.whatsAppNumber.placeholder}
+                                        value={this.state.formControls.whatsAppNumber.value}
+                                        onChange={this.changeHandler}
+                                    />
+                                </Form.Item>
 
-                        <Form.Item>
+                                <div style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "center" }}>
 
-                            <Button.Group size={"large"}>
-                                <Button onClick={this.backHandler} type="primary">
-                                    <Icon type="left" />
-                                    Previous
+                                    {/* <Button.Group size={"large"}> */}
+                                        <Button size={"large"} shape={"round"} style={{width:"25%"}} onClick={this.backHandler} type="primary">
+                                            <Icon type="left" />
+                                            Previous
                         </Button>
-                                <Button onClick={this.submitHandler} type="primary">
-                                    Submit
+                                        <Button size={"large"} shape={"round"} style={{width:"25%",background:"#28a745",borderColor:"#28a745"}} onClick={this.submitHandler} type="primary">
+                                            Submit
                             <Icon type="right" />
-                                </Button>
-                            </Button.Group>
+                                        </Button>
+                                    {/* </Button.Group> */}
 
-                        </Form.Item>
+                                </div>
+                            </Form>
+                        </Spin>
+                        :
 
-                    </Form>
-                </Spin>
-                    :
-                    
 
-                        this.state.result.success == true ? 
-                    <Result
-                        status="success"
-                        title="Successfully Purchased Cloud Server ECS!"
-                        subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
-                        extra={[
-                            <Button type="primary" key="console">
-                                Go Console
-               </Button>,
-                            <Button key="buy">Buy Again</Button>,
-                        ]}
-                    />:
-                        <div>
-                            
-  <Result
-    status="Error"
-    title="error"
-    // subTitle="Sorry, you are not authorized to access this page."
-    extra={<Button type="primary">Back Home</Button>}
-  />
-                        </div>}
-                    
-                </div>
+                        this.state.result.success == true ?
+                            <Result
+                                status="success"
+                                title="Successfully Submited Request!"
+                                subTitle="We Will Contact You Shortly!"
+                                extra={[
+                                    <Button type="primary" key="console">
+                                        Goto Home
+               </Button>
+                                ]}
+                            /> :
+                            <div>
+
+                                <Result
+                                    status="Error"
+                                    title="Sorry, Something Wrong Happened!"
+                                    // subTitle="Sorry, you are not authorized to access this page."
+                                    extra={<Button type="primary">Submit Again</Button>}
+                                />
+                            </div>}
+
+            </div>
         );
     }
 }

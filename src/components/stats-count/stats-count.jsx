@@ -9,8 +9,8 @@ export default class StatsCount extends React.Component {
             <div>
                 <Row id="row" type="flex" span={24}>
                     <Col>
-                        <h1 style={{fontSize:'3em',marginBottom:'0.17em',color:'#D70F64'}}>
-                            <CountUp end={100} duration={5} />
+                            <h1 style={{fontSize:'3em',marginBottom:'0.17em',color:'#D70F64'}}>
+                            <CountUp end={5010} duration={5} />
                         </h1>
                         <p style={{color:'black'}}>
                             Deliveries
@@ -18,7 +18,7 @@ export default class StatsCount extends React.Component {
                     </Col>
                     <Col>
                         <h1 style={{fontSize:'3em',marginBottom:'0.17em',color:'#D70F64'}}>
-                            <CountUp end={100} duration={5} />
+                            <CountUp end={90} duration={5} />
                         </h1>
                         <p style={{color:'black'}}>
                         Master Chiefs
@@ -26,7 +26,7 @@ export default class StatsCount extends React.Component {
                     </Col>
                     <Col>
                         <h1 style={{fontSize:'3em',marginBottom:'0.17em',color:'#D70F64'}}>
-                            <CountUp end={100} duration={5} />
+                            <CountUp end={32} duration={5} />
                         </h1>
                         <p style={{color:'black'}}>
                             Riders

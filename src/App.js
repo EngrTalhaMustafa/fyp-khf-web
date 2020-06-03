@@ -12,6 +12,8 @@ import Contact from './contact';
 import ChiefRegistration from "./components/chief-registration/chief-registration";
 import RiderRegistration from "./components/rider-registration/rider-registration";
 import OrderNow from "./components/order-now/order-now";
+import Checkout from "./components/checkout/checkout";
+
 
 // const { Header, Content } = Layout;
 
@@ -25,6 +27,8 @@ class App extends React.Component {
       <Route exact path='/chief-registration' component={ChiefRegistration} />
       <Route exact path='/rider-registration' component={RiderRegistration} />
       <Route exact path='/contact-us' component={Contact} />
+      <Route exact path='/checkout' component={Checkout} />
+
       {/* <Route path='/about' component={Users} /> */}
       <Footer/>
       </Router>

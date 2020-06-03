@@ -23,19 +23,8 @@ class RiderRegistration extends React.Component {
 
 
     componentDidMount() {
-        // axios.post('http://localhost:3000/registration/rider-registration', { name: "Talha Mustafa" }).then((result) => {
-        //     this.setState({
-        //         data: result.data.message,
-        //     })
-        // })
-        //     .catch(e => {
-        //         console.log("kkkk", e)
-        //     });
     }
     next = () => {
-        // e.preventDefault();
-        // console.log("aa",Validatorr.nameValidator(e.target[0].value))
-        // console.log("1",e.target.value);
         this.setState({
             step: this.state.step + 1,
 
