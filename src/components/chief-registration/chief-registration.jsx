@@ -38,27 +38,27 @@ class ChiefRegistration extends React.Component {
 
     submit = () => {
         console.log("hitting",this.props.cheifRequest)
-        API.post('http://localhost:3000/chef/send/request', this.props.cheifRequest)
-            .then(result => {
-                this.setState({
-                    data: result.data,
-                },()=>{
-                    console.log("data submited", result.data.message);
-                })
-            })
-            .catch(e => {
-                console.log("kkkk", e);
-                this.setState({
-                    ...this.state,
-                    showLoading: false,
-                })
-            });
+        // API.post('/chef/send/request', this.props.cheifRequest)
+        //     .then(result => {
+        //         this.setState({
+        //             data: result.data,
+        //         },()=>{
+        //             console.log("data submited", result.data.message);
+        //         })
+        //     })
+        //     .catch(e => {
+        //         console.log("kkkk", e);
+        //         this.setState({
+        //             ...this.state,
+        //             showLoading: false,
+        //         })
+        //     });
 
 
-        this.setState({
-            ...this.state,
-            showLoading: true,
-        })
+        // this.setState({
+        //     ...this.state,
+        //     showLoading: true,
+        // })
 
     }
 

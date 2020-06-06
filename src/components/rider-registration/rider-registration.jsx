@@ -37,6 +37,7 @@ class RiderRegistration extends React.Component {
         })
     }
 
+
     submit = () => {
         console.log("cr",this.props.riderRequest)
     }

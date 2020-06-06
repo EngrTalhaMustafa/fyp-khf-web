@@ -4,6 +4,7 @@ import StatsCount from '../stats-count/stats-count';
 import CartBar from '../cart-bar/cartBar';
 import Menu from '../menu/menu';
 import axios from 'axios';
+import api from '../../api';
 import { connect } from 'react-redux';
     class Home extends React.Component {
 
@@ -15,7 +16,7 @@ import { connect } from 'react-redux';
         }
 
         componentDidMount() {
-            axios.get('http://localhost:3000/menu')
+            api.get('menu')
                 .then(menus => {
                     let menu = menus.data.menus
                     this.setState({

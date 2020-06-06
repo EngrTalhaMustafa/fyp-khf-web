@@ -1,6 +1,7 @@
 import actionTypes from '../actions/actionTypes';
 const initialState = {
     cheifRequest: {},
+    riderRequest: {},
     menu: {},
     cart: {
         total: 0,
@@ -46,6 +47,18 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 cheifRequest: {
                     ...state.cheifRequest,
+                    ...action.payload
+                }
+            }
+            break;
+        
+            case actionTypes.ADD_TO_RIDER_REQUEST:
+            // let { payload } = action;
+            console.log("sdfd",action.payload)
+            return {
+                ...state,
+                riderRequest: {
+                    ...state.riderRequest,
                     ...action.payload
                 }
             }

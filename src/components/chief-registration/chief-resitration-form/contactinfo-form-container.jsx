@@ -6,7 +6,7 @@ import { Result, Spin, Icon, Form, FormInput, Button } from 'antd';
 import RadioField from '../../form-components/radio-field';
 import NumberInput from '../../form-components/number-input';
 import { connect } from 'react-redux';
-import API from "../../../api";
+import api from "../../../api";
 import axios from 'axios';
 class CheifRegistrationContactInfoFormContainer extends Component {
     constructor() {
@@ -61,16 +61,17 @@ class CheifRegistrationContactInfoFormContainer extends Component {
         })
         const { formControls } = this.state;
         let newObject = {
+            ...this.props.cheifRequest,
             fullAddress: formControls.fullAddress.value,
             whatsAppNumber: formControls.whatsAppNumber.value,
             postalCode: formControls.postalCode.value,
             mobilePhoneNumber: formControls.mobilePhoneNumber.value,
             email: formControls.email.value,
             city_id: 1,
-            ...this.props.cheifRequest
         };
         this.props.addToChiefRequest(newObject);
-        axios.post('http://localhost:3000/website/chef/send/request', newObject)
+        console.log(newObject,this.state.formControls,this.props.cheifRequest)
+        api.post('website/chef/send/request', newObject)
             .then(result => {
                 this.setState({
                     data: result.data,

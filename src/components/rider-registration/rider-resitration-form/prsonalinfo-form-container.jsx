@@ -6,18 +6,18 @@ import RadioField from '../../form-components/radio-field';
 import NumberInput from '../../form-components/number-input';
 import { connect } from 'react-redux';
 
-class CheifRegistrationPersonalInfoFormContainer extends Component {
+class RiderRegistrationPersonalInfoFormContainer extends Component {
   constructor() {
     super();
     this.state = {
       formControls: {
         fullName: {
           value: '',
-          placeholder: 'Sumaiya Izhar',
+          placeholder: 'Talha Mustafa',
         },
         fatherHusbandName: {
           value: '',
-          placeholder: 'Danish Izhar'
+          placeholder: 'Tahir Ali'
         },
         CNICNumber: {
           value: '',
@@ -34,19 +34,19 @@ class CheifRegistrationPersonalInfoFormContainer extends Component {
       }
     }
   }
-  genderOptions = [{ value: "m", name: "male" }, , { value: "f", name: "female" }, { value: "o", name: "other" }]
+  genderOptions = [{ value: "m", name: "Male" }, , { value: "f", name: "Female" }, { value: "o", name: "Other" }]
 
 
   submitHandler = event => {
     const { formControls } = this.state;
     let newObject = {
-      fullName: formControls.fullName.value,
-      fatherHusbandName: formControls.fatherHusbandName.value,
-      CNICNumber: formControls.CNICNumber.value,
+      full_name: formControls.fullName.value,
+      father_name: formControls.fatherHusbandName.value,
+      cnic_no: formControls.CNICNumber.value,
       gender: formControls.gender.value,
       age: formControls.age.value,
     };
-    this.props.addToChiefRequest(newObject);
+    this.props.addToRiderRequest(newObject);
     this.props.next();
   };
 
@@ -122,9 +122,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToChiefRequest: (payload) => { dispatch({ type: "ADD_TO_CHIEF_REQUEST", payload: payload }) }
+    addToRiderRequest: (payload) => { dispatch({ type: "ADD_TO_RIDER_REQUEST", payload: payload }) }
   }
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CheifRegistrationPersonalInfoFormContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RiderRegistrationPersonalInfoFormContainer);
